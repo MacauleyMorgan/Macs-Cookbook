@@ -3,11 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macs Cookbook</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Mac's Recipe Book</title>
 </head>
 <body>
+    <!-- Masthead class wraps navigation and page title in hero image -->
+    <div class="masthead">
+        <nav>
+            <button class="nav-button" id="nav-toggle-show">Show Menu</button>
+            <ul class="nav-bar" id="nav-bar">
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('recipes') }}">Recipes</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('account') }}">Account</a></li>
+                <li><a href="{{ url_for('admin') }}">Admin</a></li>
+            </ul>
+            <button class="nav-button" id="nav-toggle-close">Close Menu</button>
+        </nav>
     
-    hello world!
+        <h1 class="title">Mac's Cookbook</h1>
+    </div>
 
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p class="footer-text">Website created for educational purposes for assessment by Code Institute</p>
+    </footer>
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-</html>
+</html> 
