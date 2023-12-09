@@ -1,8 +1,8 @@
-from flask import render_template, render_template
+from flask import render_template, request
 from cookbook import app, db
 from cookbook.models import User, Recipe 
 
-@app.route("/",   methods =['GET', 'POST'])
+@app.route("/", methods =['GET', 'POST'])
 def landing():
     if request.method == 'POST':
         email = request.form.get("sign-in-email-address")
