@@ -10,8 +10,15 @@
         <label for="ringredients">Recipe Ingredients:</label><br>
         <input type="text" name="ringredients" placeholder="Ingredients" required><br>
         <label for="rsteps">Recipe Steps:</label><br>
-        <input type="text" name="rsteps" placeholder="Steps" required><br>
-        <button>Add Extra Step</button><br>
+        <ul>
+            <div class="recipe-step">
+                <li>
+                    <label for="step">Add a step</label><br>
+                    <input name="step" type="text" required>
+                </li>
+                <button>Add Extra Step</button><br>
+            </div>
+        </ul>
         <button type="submit" id="recipe-submit">Submit</button>
     </form>
 {% endblock %}
