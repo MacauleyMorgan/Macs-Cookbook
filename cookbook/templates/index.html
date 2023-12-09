@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Here is some content as a test for home page</h2>
+    <ul class="recipe-book">
+        <!-- Fill with a for loop of recipes -->
+        <li class="recipe">
+            <!-- Recipe name from database -->
+            <h3 class="recipe-name">Warming Tomato Soup</h3>
+            <h4 id="recipe-author">By Macauley Morgan</h4>
+            <div class="recipe-guide">
+                <div class="image-container">
+                    <!-- Pull image cource from database -->
+                    <img src="#" alt="Image of tomato soup" class="recipe-image">
+                    <div class="equipment">
+                        <!-- Area for equipment needed for recipe, ideally a accordian type thing scrollable by arrows -->
+                    </div>
+                </div>
+                <div class="recipe-contents">
+                    <ul class="ingredients">
+                        <h5>Ingredients</h5>
+                        <!-- For loop of ingredients in each recipe -->
+                        <li>Tomato</li>
+                        <li>Onion</li>
+                        <li>Chilli (Optional)</li>
+                    </ul>
+                    <a href="#" class="recipe-button">Click to see full recipe!</a>
+                </div>
+            </div>
+        </li>
+    </ul>
+{% endblock %}
