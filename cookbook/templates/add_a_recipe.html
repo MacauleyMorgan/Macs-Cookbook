@@ -2,4 +2,16 @@
 
 {% block content %}
     <h2>Fill out the form to add your recipe!</h2>
+    <form action="POST">
+        <label for="rname">Recipe Name:</label><br>
+        <input type="text" name="rname" placeholder="name" required><br>
+        <label for="rtime">Recipe Time:</label><br>
+        <input type="text" name="rtime" placeholder="Time" required><br>
+        <label for="ringredients">Recipe Ingredients:</label><br>
+        <input type="text" name="ringredients" placeholder="Ingredients" required><br>
+        <label for="rsteps">Recipe Steps:</label><br>
+        <input type="text" name="rsteps" placeholder="Steps" required><br>
+        <button>Add Extra Step</button><br>
+        <button type="submit" id="recipe-submit">Submit</button>
+    </form>
 {% endblock %}
