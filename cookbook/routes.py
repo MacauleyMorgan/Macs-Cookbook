@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from cookbook import app, db
 from cookbook.models import User, Recipe 
 
@@ -36,8 +36,11 @@ def register():
         last_name = request.form.get("last-name")
         email = request.form.get("email")
         password = request.form.get("password")
-        user = [first_name, last_name, email, password]
+
+        user = User(first_name, last_name, email, password)
         print(user)
+        db.session.add(user)
+        db.session.commit()
     return render_template("register.html")
 
 
