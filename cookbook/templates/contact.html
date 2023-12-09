@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>If you have any ideas on how to improve the functionality of the site or would like to speak to a member of our team, please enter your details below and we'll be in touch!</p>
+    
+    <h2>Contact Form</h2>
+    <form action="POST" id="contact-form">
+        <label for="fname">First Name</label><br>
+        <input name="fname" type="text" placeholder="Please enter first name" required><br>
+        <label for="lname">Last Name</label><br>
+        <input name="lname" type="text" placeholder="Please enter last name" required><br>
+        <label for="email">Email Address</label><br>
+        <input name="email" type="email" placeholder="Email address" required><br>
+        <button type="submit">Submit form</button>
+    </form>
+    <!-- Connect google maps API and mark a fake location of office base -->
+    <p>
+        Placement area for google maps API
+    </p>
+{% endblock %}
