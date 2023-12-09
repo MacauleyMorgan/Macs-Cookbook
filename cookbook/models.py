@@ -19,6 +19,7 @@ class Recipe(db.Model):
     recipe_name = db.Column(db.Text, nullable=False)
     recipe_time = db.Column(db.Integer, nullable=False)
     recipe_ingredients = db.Column(db.Text, nullable=False)
+    recipe_steps = db.Column(db.Text, nullable=False)
 
     def __repr__(self):
         return self.recipe_name
