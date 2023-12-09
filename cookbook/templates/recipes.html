@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Feeling Peckish?</h2>
+    <h3>Browse our submissions below!</h3>
+    <ul class="recipe-book">
+        <!-- Maybe a filter recipes bar (to do this a catagory would need to be specified on submission of recipe) -->
+        <!-- Fill with a for loop of recipes -->
+        <li class="recipe">
+            <!-- Recipe name from database -->
+            <h3 class="recipe-name">Warming Tomato Soup</h3>
+            <h4 id="recipe-author">By Macauley Morgan</h4>
+            <div class="recipe-guide">
+                <div class="image-container">
+                    <!-- Pull image cource from database -->
+                    <img src="#" alt="Image of tomato soup" class="recipe-image">
+                </div>
+                <ul class="ingredients">
+                    <!-- For loop of ingredients in each recipe -->
+                    <li>Tomato</li>
+                    <li>Onion</li>
+                    <li>Chilli (Optional)</li>
+                </ul>
+                <a href="#" class="recipe-button">Click to see more!</a>
+            </div>
+        </li>
+    </ul>
+{% endblock %}
