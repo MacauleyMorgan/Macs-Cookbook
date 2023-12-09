@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2>Fill out the form to add your recipe!</h2>
-    <form method="POST">
+    <form method="POST" action="{{ url_for('add_a_recipe') }}">
         <label for="rname">Recipe Name:</label><br>
         <input type="text" name="rname" placeholder="name" required><br>
         <label for="rtime">Recipe Time:</label><br>
@@ -13,11 +13,6 @@
         <ul>
             <div class="recipe-step">
                 <label for="step">Add a step</label><br>
-                <li>
-                    <input name="step" type="text" required>
-                </li>
-            </div>
-            <div class="recipe-step">
                 <li>
                     <input name="step" type="text" required>
                 </li>
