@@ -47,3 +47,8 @@ def account():
 @app.route("/index")
 def index():
     return render_template("index.html")
+
+
+@app.route("/add_a_recipe")
+def add_a_recipe():
+    return render_template("add_a_recipe.html")
