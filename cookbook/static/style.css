@@ -39,6 +39,17 @@
     min-height: 20vh;
 }
 
+/* Styling for flashed messages */
+.flashes-landing{
+    margin-top: 3vh;
+    background-color: rgba(255,255,255,0.75);
+    padding-block: 3vh;
+    width: 70%;
+    border-radius: 5px;
+    margin-inline: 15%;
+    box-shadow: 0 0 5px 0;
+}
+
 /* Targets buttons to expeand/collapse menu on mobile versions */
 .nav-button{
     width: 100%;
