@@ -49,12 +49,13 @@ def register():
                 recipes = []
             )
             print(new_user, "Added")
+            # Step 4 Add user to database
             db.session.add(new_user)
             db.session.commit()
-            # Step 4 Add user to database
-            # Step 5 if admin is true, redirect to admin page, else send to index page
             # Step 6 Flash message to feedback success
-            redirect(url_for("register"))
+            flash("Success! Welcome to the site")
+            print("Success! Welcome to the site")
+            redirect(url_for("landing"))
     return render_template("register.html")
 
 
