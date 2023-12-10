@@ -1,5 +1,6 @@
 from flask import render_template, request, redirect, flash, url_for, session
 from cookbook import app, db
+from werkzeug.security import generate_password_hash, check_password_hash
 from cookbook.models import User, Recipe 
 
 @app.route("/", methods =['GET', 'POST'])
@@ -12,12 +13,15 @@ def landing():
         # Check if email exists
         if request.method == "POST":
             user_already_exists = User.query.filter(
-            User.email == request.form.get("email").lower()).all()
+            User.email == request.form.get("email"))
             # If none, flash message (does not exist)#
             if user_already_exists:
-                flash("Email does not exist")
-                return redirect(url_for("landing.html"))
+                if check_password_hash(user_already_exists.password, request.form.get("password")):
+                    session["user"] = request.form.get("first-name")
+                    print("You are logged in", session["user"])
+
             # If it does, check the password matches
+
             # If not, flash message (incorrect password)
             # If admin, direct to admin page
             # If user, direct to index.html
@@ -45,7 +49,7 @@ def register():
                 first_name = request.form.get("first-name").lower(),
                 last_name = request.form.get("last-name").lower(),
                 email = request.form.get("email").lower(),
-                password = request.form.get("password").lower(),
+                password = generate_password_hash(request.form.get("password")),
                 is_admin = False,
                 recipes = []
             )
