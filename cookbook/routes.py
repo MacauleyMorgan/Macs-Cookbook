@@ -51,11 +51,10 @@ def register():
             print(new_user, "Added")
             db.session.add(new_user)
             db.session.commit()
-            
             # Step 4 Add user to database
             # Step 5 if admin is true, redirect to admin page, else send to index page
             # Step 6 Flash message to feedback success
-            redirect(url_for("landing"))
+            redirect(url_for("register"))
     return render_template("register.html")
 
 
