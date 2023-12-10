@@ -5,11 +5,16 @@ from cookbook.models import User, Recipe
 @app.route("/", methods =['GET', 'POST'])
 def landing():
     if request.method == 'POST':
-        # Links to form to get sign in info
-        email = request.form.get("sign-in-email-address")
-        password = request.form.get("password")
-        user = [email, password]
-        print(user)
+        """
+        This function will map the logic of logging in by checking existing users
+        After finding the matching entry, a password check will be completed
+        """
+        # Check if username exists
+        # If none, flash message (does not exist)
+        # If it does, check the password matches
+        # If not, flash message (incorrect password)
+        # If admin, direct to admin page
+        # If user, direct to index.html
     return render_template("landing.html")
     
 
