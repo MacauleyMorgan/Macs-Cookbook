@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, flash, url_for
+from flask import render_template, request, redirect, flash, url_for, session
 from cookbook import app, db
 from cookbook.models import User, Recipe 
 
@@ -13,12 +13,14 @@ def landing():
         if request.method == "POST":
             user_already_exists = User.query.filter(
             User.email == request.form.get("email").lower()).all()
-        # check if username already exists
-        # If none, flash message (does not exist)
-        # If it does, check the password matches
-        # If not, flash message (incorrect password)
-        # If admin, direct to admin page
-        # If user, direct to index.html
+            # If none, flash message (does not exist)#
+            if user_already_exists:
+                flash("Email does not exist")
+                return redirect(url_for("landing.html"))
+            # If it does, check the password matches
+            # If not, flash message (incorrect password)
+            # If admin, direct to admin page
+            # If user, direct to index.html
     return render_template("landing.html")
     
 
@@ -33,14 +35,27 @@ def register():
         if request.method == "POST":
             user_already_exists = User.query.filter(
             User.email == request.form.get("email").lower()).all()
-        # Step 2 If user exists flask a feedback message
-        if user_already_exists:
-            flash("Email already in use")
-            return redirect(url_for("landing.html"))
-        # Step 3 If not, create a new user
-        # Step 4 Add user to database
-        # Step 5 if admin is true, redirect to admin page, else send to index page
-        # Step 6 Flash message to feedback success
+            # Step 2 If user exists flask a feedback message
+            if user_already_exists:
+                return redirect(url_for("landing"))
+                flash("Email already in use")
+            # Step 3 If not, create a new user
+            new_user = User(
+                first_name = request.form.get("first-name").lower(),
+                last_name = request.form.get("last-name").lower(),
+                email = request.form.get("email").lower(),
+                password = request.form.get("password").lower(),
+                is_admin = False,
+                recipes = []
+            )
+            print(new_user, "Added")
+            db.session.add(new_user)
+            db.session.commit()
+            
+            # Step 4 Add user to database
+            # Step 5 if admin is true, redirect to admin page, else send to index page
+            # Step 6 Flash message to feedback success
+            redirect(url_for("landing"))
     return render_template("register.html")
 
 

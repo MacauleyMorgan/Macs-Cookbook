@@ -8,7 +8,7 @@ class User(db.Model):
     email = db.Column(db.String(50), nullable=False)
     password = db.Column(db.String(25), nullable=False)
     is_admin = db.Column(db.Boolean, default=False, nullable=False)
-    recipes = db.relationship("recipe", backref="user", cascade="all, delete", lazy=True)
+    recipes = db.relationship("Recipe", backref="user", cascade="all, delete", lazy=True)
 
     def __repr__(self):
         return "#{0} - First Name: {1} Last name:{2} Email: {3} Password: {4} Is admin: {5}".format(
