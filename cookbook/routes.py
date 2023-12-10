@@ -9,7 +9,7 @@ def landing():
         This function will map the logic of logging in by checking existing users
         After finding the matching entry, a password check will be completed
         """
-        # Check if username exists#
+        # Check if email exists
         if request.method == "POST":
             user_already_exists = User.query.filter(
             User.email == request.form.get("email").lower()).all()
@@ -29,8 +29,14 @@ def register():
         This function will take the username and check if it exists on the database
         If not, it will create a user
         """
-        # Step 1 Check if username exists
+        # Step 1 Check if email exists
+        if request.method == "POST":
+            user_already_exists = User.query.filter(
+            User.email == request.form.get("email").lower()).all()
         # Step 2 If user exists flask a feedback message
+        if user_already_exists:
+            flash("Email already in use")
+            return redirect(url_for("landing.html"))
         # Step 3 If not, create a new user
         # Step 4 Add user to database
         # Step 5 if admin is true, redirect to admin page, else send to index page
