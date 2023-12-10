@@ -32,15 +32,6 @@ def admin():
 def register():
     if request.method == 'POST':
         # Links to form to get register info
-        first_name = request.form.get("first-name")
-        last_name = request.form.get("last-name")
-        email = request.form.get("email")
-        password = request.form.get("password")
-
-        user = User(first_name, last_name, email, password)
-        print(user)
-        db.session.add(user)
-        db.session.commit()
     return render_template("register.html")
 
 
