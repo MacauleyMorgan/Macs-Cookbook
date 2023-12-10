@@ -12,16 +12,8 @@ def landing():
         """
         # Check if email exists
         if request.method == "POST":
-            user_already_exists = User.query.filter(
-            User.email == request.form.get("email"))
             # If none, flash message (does not exist)#
-            if user_already_exists:
-                if check_password_hash(user_already_exists.password, request.form.get("password")):
-                    session["user"] = request.form.get("first-name")
-                    print("You are logged in", session["user"])
-
             # If it does, check the password matches
-
             # If not, flash message (incorrect password)
             # If admin, direct to admin page
             # If user, direct to index.html
