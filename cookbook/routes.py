@@ -37,8 +37,9 @@ def register():
             User.email == request.form.get("email").lower()).all()
             # Step 2 If user exists flask a feedback message
             if user_already_exists:
-                return redirect(url_for("landing"))
+                print("Email already in use")
                 flash("Email already in use")
+                return redirect(url_for("landing"))
             # Step 3 If not, create a new user
             new_user = User(
                 first_name = request.form.get("first-name").lower(),

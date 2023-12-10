@@ -8,6 +8,17 @@
 </head>
 <body class="landing-page">
     <h1 class="landing-header">Mac's Cookbook</h1>
+    <div id="flash">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="flashes">
+            <h3>{{ message }}</h3>
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
     <div class="landing-form">
         <h2>Please sign in below</h2>
         <form method="post">
