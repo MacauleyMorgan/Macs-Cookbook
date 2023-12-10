@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, flash, url_for
 from cookbook import app, db
 from cookbook.models import User, Recipe 
 
