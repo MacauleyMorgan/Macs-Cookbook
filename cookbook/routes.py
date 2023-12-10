@@ -9,7 +9,11 @@ def landing():
         This function will map the logic of logging in by checking existing users
         After finding the matching entry, a password check will be completed
         """
-        # Check if username exists
+        # Check if username exists#
+        if request.method == "POST":
+            user_already_exists = User.query.filter(
+            User.email == request.form.get("email").lower()).all()
+        # check if username already exists
         # If none, flash message (does not exist)
         # If it does, check the password matches
         # If not, flash message (incorrect password)
